@@ -1,0 +1,536 @@
+Screens:
+  MainScreen:
+    Properties:
+      BackgroundImage: ='07_readyconfetti_light'
+      Fill: =
+      ImagePosition: =ImagePosition.Fill
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - cntMainVertical:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Height: =	Parent.Height-(Parent.Height*0.05)
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =16
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Width: =Parent.Width-(Parent.Width*0.05)
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height - Self.Height) / 2
+          Children:
+            - cntMainHeader:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =100
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutMinHeight: =16
+                  LayoutMinWidth: =16
+                  PaddingBottom: =8
+                  PaddingLeft: =8
+                  PaddingRight: =8
+                  PaddingTop: =8
+                  RadiusBottomLeft: =8
+                  RadiusBottomRight: =8
+                  RadiusTopLeft: =8
+                  RadiusTopRight: =8
+                Children:
+                  - cntHeaderVertical:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =Parent.LayoutMinHeight
+                        LayoutMinWidth: =16
+                        PaddingBottom: =8
+                        PaddingLeft: =8
+                        PaddingRight: =8
+                        PaddingTop: =8
+                      Children:
+                        - htmlHeaderTitle:
+                            Control: HtmlViewer@2.1.0
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Stretch
+                              FillPortions: =1
+                              Font: =nfFont
+                              Height: =Parent.Height
+                              HtmlText: |-
+                                =$"<div style=' 
+                                    position:absolute; 
+                                    inset:0;               
+                                    display:flex; 
+                                    align-items:center;         
+                                    justify-content:flex-start;             
+                                    box-sizing:border-box; 
+                                    padding:0 8px;
+                                    font-size:28px; 
+                                    font-family: Inter, Open Sans, sans-serif;
+                                    font-weight:bold; 
+                                    color:#000;
+                                    line-height:1.1;'> 
+                                  <!-- Welcome text stays black -->
+                                  <span>Welcome&nbsp;</span>
+                                  <a style='font-size: 28px; font-family: Inter, Open Sans; font-weight: bold; 
+                                            /* Grape gradient for name */
+                                            background: linear-gradient(90deg, 
+                                              #7f1d1d,  /* Deep red (Cabernet) */
+                                              #9b1c31,  /* Wine red */
+                                              #a21caf  /* Dark magenta */
+                                            ); 
+                                            -webkit-background-clip: text; 
+                                            -webkit-text-fill-color: transparent;'> 
+                                    {First( Split(User().FullName," ")).Value}! 
+                                  </a> 
+                                </div>"
+                              LayoutMinHeight: =16
+                              LayoutMinWidth: =16
+                              Size: =10.5
+                              Width: =Parent.Width
+                  - imgCohoLogo:
+                      Control: Image@2.2.3
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Image: ='Coho-Winery'
+                        LayoutMinHeight: =16
+                        LayoutMinWidth: =16
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+            - cntHTMLBlur:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  LayoutMinHeight: =16
+                  LayoutMinWidth: =16
+                Children:
+                  - htmlBlur:
+                      Control: HtmlViewer@2.1.0
+                      Properties:
+                        Font: =Font.'Open Sans'
+                        Height: =Parent.Height
+                        HtmlText: |
+                          =$"<div style='
+                            background: rgba(255,255,255,0.2);
+                            border-radius: 16px;
+                            box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+                            backdrop-filter: blur(5px);
+                            -webkit-backdrop-filter: blur(5px);
+                            border: 1px solid rgba(255,255,255,0.3);
+
+                            /* Fill the HTMLText control exactly */
+                            position: absolute; inset: 0;
+                            width: 100%; height: 100%;
+                            box-sizing: border-box;
+
+                            padding: 10px;
+                            overflow: hidden;
+                            color: white;
+                            font-family: Poppins, sans-serif;
+                          '>"
+                        Width: =Parent.Width
+                        X: '=0  '
+                  - cntMainBody:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        Height: =Parent.Height
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =16
+                        LayoutWrap: =true
+                        PaddingBottom: =2
+                        PaddingLeft: =2
+                        PaddingRight: =2
+                        PaddingTop: =2
+                        Width: =Parent.Width
+                      Children:
+                        - cntBodyPurchaseOrders:
+                            Control: GroupContainer@1.5.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =7
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutMinHeight: =16
+                              LayoutMinWidth: =16
+                              PaddingBottom: =8
+                              PaddingLeft: =8
+                              PaddingRight: =8
+                              PaddingTop: =8
+                              RadiusBottomLeft: =8
+                              RadiusBottomRight: =8
+                              RadiusTopLeft: =8
+                              RadiusTopRight: =8
+                            Children:
+                              - cntHeaderPurchaseOrders:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =50
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                    LayoutMinHeight: =16
+                                    LayoutMinWidth: =16
+                                    LayoutWrap: =true
+                                    PaddingBottom: =8
+                                    PaddingLeft: =8
+                                    PaddingRight: =8
+                                    PaddingTop: =8
+                                  Children:
+                                    - lblTitlePurchaseOrders:
+                                        Control: FluentV8/Label@1.8.6
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =nfPrimaryColor
+                                          FillPortions: =1
+                                          Font: =nfFont
+                                          FontSize: =16
+                                          FontWeight: =FontWeight.Bold
+                                          LayoutMinHeight: =16
+                                          LayoutMinWidth: =16
+                                          OnSelect: =Navigate('Purchase Orders (Views)'.'Active Purchase Orders')
+                                          Text: ="Purchase Orders"
+                                    - icnAddDocument:
+                                        Control: Classic/Icon@2.5.0
+                                        Properties:
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          Color: =nfPrimaryColor
+                                          DisabledColor: =RGBA(220, 220, 220, 1)
+                                          DisabledFill: =RGBA(0, 0, 0, 0)
+                                          Height: =32
+                                          HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                          HoverColor: =ColorFade(Self.Color, -30%)
+                                          HoverFill: =RGBA(0, 0, 0, 0)
+                                          Icon: =Icon.AddDocument
+                                          LayoutMinHeight: =16
+                                          LayoutMinWidth: =16
+                                          OnSelect: =Navigate(PurchaseOrders,ScreenTransition.Fade)
+                                          PaddingBottom: =3
+                                          PaddingLeft: =3
+                                          PaddingRight: =3
+                                          PaddingTop: =3
+                                          PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                          PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                          PressedFill: =RGBA(0, 0, 0, 0)
+                                          Width: =32
+                              - recDividerPurchaseOrders:
+                                  Control: Rectangle@2.3.0
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    BorderColor: =RGBA(166, 166, 166, 1)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledFill: =RGBA(166, 166, 166, 1)
+                                    Fill: =RGBA(245,245,245,1)
+                                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                                    Height: =1
+                                    HoverFill: =RGBA(0, 120, 212, 1)
+                                    LayoutMinHeight: =16
+                                    LayoutMinWidth: =16
+                                    PressedFill: =RGBA(0, 120, 212, 1)
+                              - galPurchaseOrders:
+                                  Control: Gallery@2.15.0
+                                  Variant: BrowseLayout_Vertical_TwoTextVariant_pcfCore
+                                  Properties:
+                                    BorderColor: =RGBA(166, 166, 166, 1)
+                                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                                    FocusedBorderThickness: =2
+                                    Items: =nfcolPurchaseOrders
+                                    ShowScrollbar: =false
+                                    TemplateSize: =55
+                                  Children:
+                                    - recDividerPurchaseOrdersGallery:
+                                        Control: Rectangle@2.3.0
+                                        Properties:
+                                          BorderColor: =RGBA(166, 166, 166, 1)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          DisabledFill: =RGBA(166, 166, 166, 1)
+                                          Fill: =RGBA(245,245,245,1)
+                                          FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                                          Height: =1
+                                          HoverFill: =RGBA(214, 221, 224, 1)
+                                          PressedFill: =RGBA(0, 120, 212, 1)
+                                          Width: =Parent.Width
+                                          Y: =54
+                                    - cntGalleryPOHorizontal:
+                                        Control: GroupContainer@1.5.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          Height: =Parent.TemplateHeight
+                                          LayoutAlignItems: =LayoutAlignItems.Center
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          PaddingBottom: =8
+                                          PaddingLeft: =8
+                                          PaddingRight: =8
+                                          PaddingTop: =8
+                                          Width: =Parent.Width
+                                        Children:
+                                          - lblPurchaseOrderNumber:
+                                              Control: FluentV8/Label@1.8.6
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Stretch
+                                                AutoHeight: =true
+                                                FillPortions: =1
+                                                Font: =nfFont
+                                                FontSize: =14
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =16
+                                                LayoutMinWidth: =16
+                                                Text: =ThisItem.purchaseordernumber
+                                          - lblPOVendorInfo:
+                                              Control: FluentV8/Label@1.8.6
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Stretch
+                                                AutoHeight: =true
+                                                Color: =RGBA(53, 61, 63, 1)
+                                                FillPortions: =1
+                                                Font: =nfFont
+                                                FontSize: =14
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =16
+                                                LayoutMinWidth: =16
+                                                Text: =ThisItem.account & " | " & ThisItem.vendorId
+                                                Wrap: =false
+                                          - icnSelectPO:
+                                              Control: Classic/Icon@2.5.0
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Stretch
+                                                BorderColor: =RGBA(0, 0, 0, 0)
+                                                Color: =nfPrimaryColor
+                                                DisabledColor: =RGBA(220, 220, 220, 1)
+                                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                                Height: =32
+                                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                                HoverColor: =ColorFade(Self.Color, 70%)
+                                                HoverFill: =RGBA(0, 0, 0, 0)
+                                                Icon: =Icon.ChevronRight
+                                                LayoutMinHeight: =16
+                                                LayoutMinWidth: =16
+                                                OnSelect: =Set(varSelectedPO,ThisItem)
+                                                PaddingBottom: =10
+                                                PaddingLeft: =10
+                                                PaddingRight: =10
+                                                PaddingTop: =10
+                                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                                PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                                PressedFill: =RGBA(0, 0, 0, 0)
+                                                Width: =50
+                        - cntSidebar:
+                            Control: GroupContainer@1.5.0
+                            Variant: AutoLayout
+                            Properties:
+                              FillPortions: =3
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutMinHeight: =16
+                              LayoutMinWidth: =16
+                              PaddingBottom: =8
+                              PaddingLeft: =8
+                              PaddingRight: =8
+                              PaddingTop: =8
+                              Visible: =!IsBlank(varSelectedPO)
+                            Children:
+                              - cntSidebarHeader:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =50
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                    LayoutMinHeight: =16
+                                    LayoutMinWidth: =16
+                                    LayoutWrap: =true
+                                    PaddingBottom: =8
+                                    PaddingLeft: =8
+                                    PaddingRight: =8
+                                    PaddingTop: =8
+                                  Children:
+                                    - lblSidebarTitle:
+                                        Control: FluentV8/Label@1.8.6
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =RGBA(0, 0, 0, 1)
+                                          FillPortions: =1
+                                          Font: =nfFont
+                                          FontSize: =16
+                                          FontWeight: =FontWeight.Bold
+                                          LayoutMinHeight: =16
+                                          LayoutMinWidth: =16
+                                          Text: ="Purchase Order Details"
+                              - recSidebarDividerPurchaseOrders:
+                                  Control: Rectangle@2.3.0
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    BorderColor: =RGBA(166, 166, 166, 1)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledFill: =RGBA(166, 166, 166, 1)
+                                    Fill: =RGBA(245,245,245,1)
+                                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                                    Height: =1
+                                    HoverFill: =RGBA(0, 120, 212, 1)
+                                    LayoutMinHeight: =16
+                                    LayoutMinWidth: =16
+                                    PressedFill: =RGBA(0, 120, 212, 1)
+                              - cntSidebarPOInfo:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =50
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                    LayoutMinHeight: =16
+                                    LayoutMinWidth: =16
+                                    LayoutWrap: =true
+                                    PaddingBottom: =8
+                                    PaddingLeft: =8
+                                    PaddingRight: =8
+                                    PaddingTop: =8
+                                  Children:
+                                    - lblSidebarPONumber:
+                                        Control: FluentV8/Label@1.8.6
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Stretch
+                                          AutoHeight: =true
+                                          Color: =RGBA(0, 0, 0, 1)
+                                          FillPortions: =0.5
+                                          Font: =nfFont
+                                          FontSize: =12
+                                          FontWeight: =FontWeight.Bold
+                                          LayoutMinHeight: =16
+                                          LayoutMinWidth: =16
+                                          Text: ="Number:"
+                                          Width: =150
+                                    - lblSidebarPONumberValue:
+                                        Control: FluentV8/Label@1.8.6
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =nfPrimaryColor
+                                          FillPortions: =1
+                                          Font: =nfFont
+                                          FontSize: =12
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =16
+                                          LayoutMinWidth: =16
+                                          Text: =varSelectedPO.purchaseordernumber
+                              - cntSidebarPOInfo_1:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =50
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                    LayoutMinHeight: =16
+                                    LayoutMinWidth: =16
+                                    LayoutWrap: =true
+                                    PaddingBottom: =8
+                                    PaddingLeft: =8
+                                    PaddingRight: =8
+                                    PaddingTop: =8
+                                  Children:
+                                    - lblSidebarPONumber_1:
+                                        Control: FluentV8/Label@1.8.6
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Stretch
+                                          AutoHeight: =true
+                                          Color: =RGBA(0, 0, 0, 1)
+                                          FillPortions: =0.5
+                                          Font: =nfFont
+                                          FontSize: =12
+                                          FontWeight: =FontWeight.Bold
+                                          LayoutMinHeight: =16
+                                          LayoutMinWidth: =16
+                                          Text: ="Status:"
+                                          Width: =150
+                                    - lblSidebarPONumberValue_1:
+                                        Control: FluentV8/Label@1.8.6
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =nfPrimaryColor
+                                          FillPortions: =1
+                                          Font: =nfFont
+                                          FontSize: =12
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =16
+                                          LayoutMinWidth: =16
+                                          Text: =varSelectedPO.result
+                              - cntSidebarPOInfo_2:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =50
+                                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =8
+                                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                    LayoutMinHeight: =16
+                                    LayoutMinWidth: =16
+                                    LayoutWrap: =true
+                                    PaddingBottom: =8
+                                    PaddingLeft: =8
+                                    PaddingRight: =8
+                                    PaddingTop: =8
+                                  Children:
+                                    - lblSidebarPONumber_2:
+                                        Control: FluentV8/Label@1.8.6
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Stretch
+                                          AutoHeight: =true
+                                          Color: =RGBA(0, 0, 0, 1)
+                                          FillPortions: =0.5
+                                          Font: =nfFont
+                                          FontSize: =12
+                                          FontWeight: =FontWeight.Bold
+                                          LayoutMinHeight: =16
+                                          LayoutMinWidth: =16
+                                          Text: ="Warehouse:"
+                                          Width: =150
+                                    - lblSidebarPONumberValue_2:
+                                        Control: FluentV8/Label@1.8.6
+                                        Properties:
+                                          AutoHeight: =true
+                                          Color: =nfPrimaryColor
+                                          FillPortions: =1
+                                          Font: =nfFont
+                                          FontSize: =12
+                                          FontWeight: =FontWeight.Normal
+                                          LayoutMinHeight: =16
+                                          LayoutMinWidth: =16
+                                          Text: =varSelectedPO.warehouseId
